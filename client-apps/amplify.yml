@@ -1,0 +1,24 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - "echo AUTH_SECRET=$AUTH_SECRET >> .env"
+            - "echo NEXT_PUBLIC_API_GATEWAY_URL=$NEXT_PUBLIC_API_GATEWAY_URL >> .env"
+            - "echo NEXT_PUBLIC_COGNITO_CLIENT_ID=$NEXT_PUBLIC_COGNITO_CLIENT_ID >> .env"
+            - "echo NEXT_PUBLUC_COGNITO_ID_TOKEN_EXPIRED=$NEXT_PUBLUC_COGNITO_ID_TOKEN_EXPIRED >> .env"
+            - "echo AUTH_URL=$AUTH_URL >> .env"
+            - yarn install
+        build:
+          commands:
+            - yarn run build
+      artifacts:
+        baseDirectory: .next
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - .next/cache/**/*
+          - node_modules/**/*
+    appRoot: client-apps

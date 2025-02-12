@@ -5,7 +5,7 @@ const {
    getConversationById,
    deleteConversationById,
    deleteAllConversations,
-} = require("./controller");
+} = require("/opt/controller");
 
 exports.handler = async (event, context) => {
    context.callbackWaitsForEmptyEventLoop = false;

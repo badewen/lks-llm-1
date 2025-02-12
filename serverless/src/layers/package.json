@@ -1,7 +1,6 @@
 {
    "name": "english-apps-layer",
    "version": "1.0.0",
-   "type": "module",
    "engines": {
       "node": ">=20.0.0"
    },
